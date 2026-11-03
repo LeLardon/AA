@@ -1,0 +1,263 @@
+/* --- Styles généraux --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: #fcfbf7; /* Fond crème très doux */
+    color: #4a453b;            /* Texte marron/gris chaleureux */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Page de connexion (index.html) centrée avec un dégradé jaune doux */
+body.page-login {
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #fcfbf7 0%, #fef3c7 100%);
+}
+
+/* --- Barre de navigation --- */
+header {
+    background-color: #fefce8;
+    border-bottom: 1px solid #fef08a;
+    padding: 1rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav a {
+    color: #854d0e;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #fff;
+    background-color: #eab308;
+}
+
+nav a.active {
+    color: #fff;
+    background-color: #ca8a04;
+}
+
+nav a.logout {
+    color: #b91c1c;
+}
+
+nav a.logout:hover {
+    background-color: #fee2e2;
+}
+
+/* --- Contenu principal --- */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 2rem;
+}
+
+/* --- Cartes / Conteneurs (Style chaleureux) --- */
+.card {
+    background: #ffffff;
+    padding: 3rem 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(234, 179, 8, 0.15);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    border: 1px solid #fef08a;
+}
+
+.card h1 {
+    font-family: 'Georgia', serif;
+    color: #713f12;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.card p {
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Question de la page d'accueil */
+.question {
+    font-size: 1.05rem;
+    background: #fefce8;
+    color: #713f12;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    border-left: 4px solid #eab308;
+}
+
+/* --- Formulaire --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input[type="text"] {
+    padding: 0.85rem;
+    font-size: 1rem;
+    border: 1px solid #fde047;
+    border-radius: 8px;
+    outline: none;
+    background-color: #fffdfd;
+    text-align: center;
+    color: #4a453b;
+}
+
+input[type="text"]:focus {
+    border-color: #ca8a04;
+    box-shadow: 0 0 5px rgba(202, 138, 4, 0.3);
+}
+
+button {
+    padding: 0.85rem;
+    font-size: 1rem;
+    background-color: #ca8a04;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    transition: background 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #a16207;
+    transform: translateY(-1px);
+}
+
+.error {
+    color: #b91c1c;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-family: 'Arial', sans-serif;
+}
+
+.hidden {
+    display: none;
+}
+
+.photos-container {
+    position: relative;
+    width: 300px;  /* Ajustez la taille selon vos besoins */
+    height: 350px; /* Ajustez selon la hauteur de vos photos */
+    margin: 2rem auto; /* Centre le conteneur sur la page */
+}
+
+.photo {
+    position: absolute;
+    width: 200px;  /* Largeur de chaque photo */
+    height: auto;
+    border-radius: 10px; /* Bords arrondis style polaroïd/doux */
+    border: 5px solid #ffffff; /* Joli cadre blanc autour des photos */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Ombre portée chaleureuse */
+    transition: transform 0.3s ease, z-index 0.3s ease;
+}
+
+/* Première photo (inclinée vers la gauche) */
+.photo-1 {
+    top: 0;
+    left: 0;
+    transform: rotate(-8deg);
+    z-index: 1; /* Passe en dessous par défaut */
+}
+
+/* Deuxième photo (inclinée vers la droite et chevauche la première) */
+.photo-2 {
+    top: 40px; /* Décale la deuxième photo vers le bas */
+    left: 80px; /* La décale vers la droite pour qu'elles se croisent */
+    transform: rotate(8deg);
+    z-index: 2; /* Passe au-dessus */
+}
+
+/* Petit effet magique au survol : la photo survolée vient au premier plan */
+.photo:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 10;
+}
+
+/* Style pour le bouton de navigation "Suivant" */
+a[href="page2.html"], .btn-suivant {
+    display: inline-block;
+    background-color: #ca8a04; /* Jaune doré chaleureux */
+    color: #ffffff;            /* Texte blanc */
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;      /* Effet arrondi / pilule très doux */
+    box-shadow: 0 4px 15px rgba(202, 138, 4, 0.2);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+/* Effet au survol de la souris */
+a[href="page2.html"]:hover, .btn-suivant:hover {
+    background-color: #a16207; /* Jaune doré un peu plus foncé */
+    transform: translateY(-2px); /* Petit effet de lévitation vers le haut */
+    box-shadow: 0 6px 20px rgba(202, 138, 4, 0.3);
+}
+
+/* Style pour le lien de retour / page 1 */
+a[href="page1.html"], .btn-precedent {
+    display: inline-block;
+    background-color: #fefce8; /* Fond crème/jaune très pâle */
+    color: #854d0e;            /* Texte jaune/marron chaleureux */
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;      /* Effet arrondi / pilule */
+    border: 1px solid #fde047; /* Fine bordure dorée */
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol de la souris */
+a[href="page1.html"]:hover, .btn-precedent:hover {
+    background-color: #fef08a; /* Jaune un peu plus soutenu au survol */
+    transform: translateY(-2px); /* Petit effet de lévitation */
+    box-shadow: 0 4px 12px rgba(202, 138, 4, 0.15);
+}
+/* Style pour le bouton de déconnexion / quitter */
+a.logout {
+    display: inline-block;
+    background-color: #fef2f2; /* Fond rouge/crème très pâle et discret */
+    color: #b91c1c;            /* Texte rouge chaleureux */
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;      /* Effet arrondi / pilule */
+    border: 1px solid #fecaca; /* Fine bordure rouge clair */
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol de la souris */
+a.logout:hover {
+    background-color: #fee2e2; /* Rouge un peu plus prononcé au survol */
+    color: #991b1b;            /* Texte un peu plus foncé */
+    transform: translateY(-2px); /* Petit effet de lévitation */
+    box-shadow: 0 4px 12px rgba(185, 28, 28, 0.15);
+}

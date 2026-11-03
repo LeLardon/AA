@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="icon" type="image/jpeg" href="images/premier_date.jpg" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 1 - Mon Site</title>
+    <title>Bienvenue</title>
     <link rel="stylesheet" href="style.css">
     
     <!-- Protection de la page -->
@@ -12,19 +13,31 @@
 <body>
 
     <header>
-        <nav>
-            <a href="page1.html" class="active">Page 1</a>
-            <a href="page2.html">Page 2</a>
-            <a href="index.html" onclick="sessionStorage.removeItem('accessGranted');" class="logout">Quitter</a>
-        </nav>
+        <a href="index.html" onclick="sessionStorage.removeItem('accessGranted');" class="logout">Quitter</a>
     </header>
 
     <main class="container">
         <div class="card">
-            <h1>Bienvenue sur la Page 1 !</h1>
-            <p>Félicitations, vous avez franchi le sas de sécurité avec succès.</p>
-            <p>Ceci est le premier espace réservé de votre site multi-pages.</p>
+            <h1>Bienvenue sur ce joli site web</h1>
+            <p>(je me jette un peu des fleurs, mais je suis plutot fière de ce que tu vois ^^)</p>
+            <p>Déjà félicitations, tu as trouvé la clé pour accéder à ce site</p>
+            <p>J'ai eu l'idée il y a quelques mois mais je n'ai pas pris le temps de le faire</p>
+            <p>Je m'y suis très récemment, ce site retracera notre histoire avec des photos et du texte</p>
+            <p>Pour commencer, voici quelques photos du commencement de notre relation</p>
+            <p>Tu peux cliquer sur suivant mais je n'ai pas eu le temps de faire la suite</p>
+            <a href="page2.html">Suivant</a>
         </div>
+
+        <div class="photos-container">
+            <img src="images/decla_alicia_1.jpg" alt="Première photo" class="photo photo-1">
+            <img src="images/decla_alicia_2.jpg" alt="Deuxième photo" class="photo photo-2">
+        </div>
+
+        <div class="photos-container">
+            <img src="images/decla_alexis_1.jpg" alt="Première photo" class="photo photo-1">
+            <img src="images/premier_date.jpg" alt="Deuxième photo" class="photo photo-2">
+        </div>
+
     </main>
 
 </body>

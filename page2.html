@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="icon" type="image/jpeg" href="images/premier_date.jpg" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page 2 - Mon Site</title>
@@ -12,19 +13,22 @@
 <body>
 
     <header>
-        <nav>
-            <a href="page1.html">Page 1</a>
-            <a href="page2.html" class="active">Page 2</a>
-            <a href="index.html" onclick="sessionStorage.removeItem('accessGranted');" class="logout">Quitter</a>
-        </nav>
+        <a href="index.html" onclick="sessionStorage.removeItem('accessGranted');" class="logout">Quitter</a>
     </header>
 
     <main class="container">
         <div class="card">
-            <h1>Bienvenue sur la Page 2 !</h1>
-            <p>C'est la deuxième page de votre site.</p>
-            <p>Vous pouvez naviguer librement entre les pages 1 et 2 tant que votre onglet reste ouvert.</p>
+            <h1>Je t'ai dit que c'était pas prêt</h1>
+            <p>Du coup BAM, photos dossiers</p>
+            <p>Je te laisse quand meme la possibilté de revenir à la page précédente mais c'est parce que je suis gentil ca</p>
+            <a href="page1.html">Précedent</a>
         </div>
+        
+        <div class="photos-container">
+            <img src="images/dossier_alexis.jpg" alt="Première photo" class="photo photo-1">
+            <img src="images/dossier_alicia.jpg" alt="Deuxième photo" class="photo photo-2">
+        </div>
+
     </main>
 
 </body>

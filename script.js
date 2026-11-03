@@ -1,8 +1,11 @@
 document.getElementById('auth-form').addEventListener('submit', function(e) {
     e.preventDefault(); // Empêche le rechargement de la page
     
+    // .trim() enlève les espaces superflus et .toLowerCase() met tout en minuscules
     const userAnswer = document.getElementById('answer-input').value.trim().toLowerCase();
-    const correctAnswer = "8"; // Vous pouvez changer la bonne réponse ici
+    
+    // Mettez ici la réponse attendue en minuscules (ex: "oui")
+    const correctAnswer = "incomparable"; 
     const errorMsg = document.getElementById('error-msg');
 
     if (userAnswer === correctAnswer) {
