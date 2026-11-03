@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès au site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-login">
+
+    <div class="card">
+        <h1>Zone Protégée</h1>
+        <p>Répondez à la question pour accéder au site :</p>
+        <p class="question"><strong>Combien font 3 + 5 ?</strong></p>
+        
+        <form id="auth-form">
+            <input type="text" id="answer-input" placeholder="Votre réponse..." required autocomplete="off">
+            <button type="submit">Entrer</button>
+        </form>
+        <p id="error-msg" class="error hidden">Mauvaise réponse, réessayez !</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

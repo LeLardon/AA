@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1 - Mon Site</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Protection de la page -->
+    <script src="auth.js"></script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="page1.html" class="active">Page 1</a>
+            <a href="page2.html">Page 2</a>
+            <a href="index.html" onclick="sessionStorage.removeItem('accessGranted');" class="logout">Quitter</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h1>Bienvenue sur la Page 1 !</h1>
+            <p>Félicitations, vous avez franchi le sas de sécurité avec succès.</p>
+            <p>Ceci est le premier espace réservé de votre site multi-pages.</p>
+        </div>
+    </main>
+
+</body>
+</html>
