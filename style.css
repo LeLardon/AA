@@ -25,13 +25,15 @@ body.page-login {
 header {
     background-color: #fefce8;
     border-bottom: 1px solid #fef08a;
-    padding: 1rem 0;
+    padding: 0.8rem 1rem;
 }
 
 nav {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur les tout petits écrans */
 }
 
 nav a {
@@ -39,8 +41,8 @@ nav a {
     text-decoration: none;
     font-family: 'Arial', sans-serif;
     font-weight: bold;
-    font-size: 0.95rem;
-    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 20px;
     transition: all 0.3s ease;
 }
@@ -69,13 +71,13 @@ nav a.logout:hover {
     justify-content: center;
     align-items: center;
     flex: 1;
-    padding: 2rem;
+    padding: 1rem; /* Marges réduites sur mobile pour ne pas rogner le contenu */
 }
 
 /* --- Cartes / Conteneurs (Style chaleureux) --- */
 .card {
     background: #ffffff;
-    padding: 3rem 2.5rem;
+    padding: 2rem 1.5rem; /* Padding réduit sur mobile */
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(234, 179, 8, 0.15);
     text-align: center;
@@ -88,22 +90,23 @@ nav a.logout:hover {
     font-family: 'Georgia', serif;
     color: #713f12;
     margin-bottom: 1rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem; /* Légèrement plus petit sur mobile pour éviter les césures */
 }
 
 .card p {
     margin-bottom: 1.2rem;
     line-height: 1.6;
+    font-size: 0.95rem;
 }
 
 /* Question de la page d'accueil */
 .question {
-    font-size: 1.05rem;
+    font-size: 1rem;
     background: #fefce8;
     color: #713f12;
-    padding: 1rem;
+    padding: 0.8rem;
     border-radius: 8px;
-    margin: 1.5rem 0;
+    margin: 1.2rem 0;
     border-left: 4px solid #eab308;
 }
 
@@ -123,6 +126,7 @@ input[type="text"] {
     background-color: #fffdfd;
     text-align: center;
     color: #4a453b;
+    width: 100%;
 }
 
 input[type="text"]:focus {
@@ -141,6 +145,7 @@ button {
     font-weight: bold;
     font-family: 'Arial', sans-serif;
     transition: background 0.3s, transform 0.1s;
+    width: 100%;
 }
 
 button:hover {
@@ -159,20 +164,21 @@ button:hover {
     display: none;
 }
 
+/* --- Conteneur de photos chevauchantes (Optimisé mobile) --- */
 .photos-container {
     position: relative;
-    width: 300px;  /* Ajustez la taille selon vos besoins */
-    height: 350px; /* Ajustez selon la hauteur de vos photos */
-    margin: 2rem auto; /* Centre le conteneur sur la page */
+    width: 260px;  /* Réduit pour tenir parfaitement sur mobile */
+    height: 310px; 
+    margin: 1.5rem auto; 
 }
 
 .photo {
     position: absolute;
-    width: 200px;  /* Largeur de chaque photo */
+    width: 160px;  /* Taille adaptée aux petits écrans */
     height: auto;
-    border-radius: 10px; /* Bords arrondis style polaroïd/doux */
-    border: 5px solid #ffffff; /* Joli cadre blanc autour des photos */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Ombre portée chaleureuse */
+    border-radius: 10px; 
+    border: 4px solid #ffffff; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
     transition: transform 0.3s ease, z-index 0.3s ease;
 }
 
@@ -180,84 +186,122 @@ button:hover {
 .photo-1 {
     top: 0;
     left: 0;
-    transform: rotate(-8deg);
-    z-index: 1; /* Passe en dessous par défaut */
+    transform: rotate(-6deg);
+    z-index: 1; 
 }
 
 /* Deuxième photo (inclinée vers la droite et chevauche la première) */
 .photo-2 {
-    top: 40px; /* Décale la deuxième photo vers le bas */
-    left: 80px; /* La décale vers la droite pour qu'elles se croisent */
-    transform: rotate(8deg);
-    z-index: 2; /* Passe au-dessus */
+    top: 35px; 
+    left: 70px; 
+    transform: rotate(6deg);
+    z-index: 2; 
 }
 
-/* Petit effet magique au survol : la photo survolée vient au premier plan */
+/* Effet au survol */
 .photo:hover {
     transform: scale(1.05) rotate(0deg);
     z-index: 10;
 }
 
-/* Style pour le bouton de navigation "Suivant" */
-a[href="page2.html"], .btn-suivant {
-    display: inline-block;
-    background-color: #ca8a04; /* Jaune doré chaleureux */
-    color: #ffffff;            /* Texte blanc */
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;      /* Effet arrondi / pilule très doux */
-    box-shadow: 0 4px 15px rgba(202, 138, 4, 0.2);
-    transition: all 0.3s ease;
-    border: none;
-}
-
-/* Effet au survol de la souris */
-a[href="page2.html"]:hover, .btn-suivant:hover {
-    background-color: #a16207; /* Jaune doré un peu plus foncé */
-    transform: translateY(-2px); /* Petit effet de lévitation vers le haut */
-    box-shadow: 0 6px 20px rgba(202, 138, 4, 0.3);
-}
-
-/* Style pour le lien de retour / page 1 */
-a[href="page1.html"], .btn-precedent {
-    display: inline-block;
-    background-color: #fefce8; /* Fond crème/jaune très pâle */
-    color: #854d0e;            /* Texte jaune/marron chaleureux */
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;      /* Effet arrondi / pilule */
-    border: 1px solid #fde047; /* Fine bordure dorée */
-    transition: all 0.3s ease;
-}
-
-/* Effet au survol de la souris */
-a[href="page1.html"]:hover, .btn-precedent:hover {
-    background-color: #fef08a; /* Jaune un peu plus soutenu au survol */
-    transform: translateY(-2px); /* Petit effet de lévitation */
-    box-shadow: 0 4px 12px rgba(202, 138, 4, 0.15);
-}
-/* Style pour le bouton de déconnexion / quitter */
+/* --- Boutons de navigation --- */
+a[href="page2.html"], .btn-suivant,
+a[href="page1.html"], .btn-precedent,
 a.logout {
     display: inline-block;
-    background-color: #fef2f2; /* Fond rouge/crème très pâle et discret */
-    color: #b91c1c;            /* Texte rouge chaleureux */
     font-family: 'Arial', sans-serif;
     font-weight: bold;
     text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;      /* Effet arrondi / pilule */
-    border: 1px solid #fecaca; /* Fine bordure rouge clair */
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
     transition: all 0.3s ease;
+    font-size: 0.9rem;
+    text-align: center;
 }
 
-/* Effet au survol de la souris */
+/* Bouton Suivant */
+a[href="page2.html"], .btn-suivant {
+    background-color: #ca8a04;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(202, 138, 4, 0.2);
+    border: none;
+}
+a[href="page2.html"]:hover, .btn-suivant:hover {
+    background-color: #a16207;
+    transform: translateY(-2px);
+}
+
+/* Bouton Précédent */
+a[href="page1.html"], .btn-precedent {
+    background-color: #fefce8;
+    color: #854d0e;
+    border: 1px solid #fde047;
+}
+a[href="page1.html"]:hover, .btn-precedent:hover {
+    background-color: #fef08a;
+    transform: translateY(-2px);
+}
+
+/* Bouton Quitter / Logout */
+a.logout {
+    background-color: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
 a.logout:hover {
-    background-color: #fee2e2; /* Rouge un peu plus prononcé au survol */
-    color: #991b1b;            /* Texte un peu plus foncé */
-    transform: translateY(-2px); /* Petit effet de lévitation */
-    box-shadow: 0 4px 12px rgba(185, 28, 28, 0.15);
+    background-color: #fee2e2;
+    color: #991b1b;
+    transform: translateY(-2px);
+}
+
+
+/* --- ADAPTATION GRAND ÉCRAN (Ordinateur) --- */
+/* Si l'écran fait plus de 768px de large (tablettes et PC), on redonne un peu plus d'espace */
+@media (min-width: 768px) {
+    .card {
+        padding: 3rem 2.5rem;
+    }
+    
+    .card h1 {
+        font-size: 1.8rem;
+    }
+
+    .photos-container {
+        width: 300px;
+        height: 350px;
+    }
+
+    .photo {
+        width: 200px;
+    }
+
+    .photo-2 {
+        top: 40px;
+        left: 80px;
+    }
+
+    nav {
+        gap: 2rem;
+    }
+
+    nav a {
+        font-size: 0.95rem;
+        padding: 0.5rem 1rem;
+    }
+}
+/* --- Mise en page adaptative pour la Page 2 --- */
+.page-content {
+    display: flex;
+    flex-direction: column; /* Sur mobile : on empile la carte et les photos */
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Sur ordinateur (écrans de plus de 768px) : on les met côte à côte */
+@media (min-width: 768px) {
+    .page-content {
+        flex-direction: row;
+        justify-content: center;
+        gap: 3rem;
+    }
 }

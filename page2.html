@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="icon" type="image/jpeg" href="images/premier_date.jpg" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page 2 - Mon Site</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpeg" href="images/premier_date.jpg" />
     
     <!-- Protection de la page -->
     <script src="auth.js"></script>
@@ -13,22 +13,23 @@
 <body>
 
     <header>
-        <a href="index.html" onclick="sessionStorage.removeItem('accessGranted');" class="logout">Quitter</a>
+        <nav>
+            <a href="index.html" onclick="sessionStorage.removeItem('accessGranted');" class="logout">Quitter</a>
+        </nav>
     </header>
 
-    <main class="container">
+    <main class="container page-content">
         <div class="card">
             <h1>Je t'ai dit que c'était pas prêt</h1>
             <p>Du coup BAM, photos dossiers</p>
-            <p>Je te laisse quand meme la possibilté de revenir à la page précédente mais c'est parce que je suis gentil ca</p>
-            <a href="page1.html">Précedent</a>
+            <p>Je te laisse quand même la possibilité de revenir à la page précédente mais c'est parce que je suis gentil ça</p>
+            <a href="page1.html" class="btn-precedent">Précédent</a>
         </div>
         
         <div class="photos-container">
             <img src="images/dossier_alexis.jpg" alt="Première photo" class="photo photo-1">
             <img src="images/dossier_alicia.jpg" alt="Deuxième photo" class="photo photo-2">
         </div>
-
     </main>
 
 </body>
