@@ -14,40 +14,28 @@ body {
     flex-direction: column;
 }
 
-/* Page de connexion (index.html) centrée avec un dégradé jaune doux */
+/* Page de connexion (0-home.html) centrée avec un dégradé jaune doux */
 body.page-login {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #fcfbf7 0%, #fef3c7 100%);
 }
 
-/* --- En-tête (Header) --- */
+/* --- En-tête (Header) avec uniquement du texte centré --- */
 header {
     background-color: #fefce8; /* Fond jaune très pâle et doux */
     border-bottom: 1px solid #fef08a; /* Fine bordure dorée discrète */
     padding: 1rem 1.5rem;
-    display: flex;
-    justify-content: space-between; /* Espace les éléments (ex: logo/titre à gauche, liens à droite) */
-    align-items: center;
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne proprement sur mobile si besoin */
-    gap: 1rem;
+    text-align: center; /* Centre parfaitement le texte à l'intérieur */
 }
 
-/* Style si vous mettez un titre ou du texte simple dans le header */
-header .header-title, header h1, header p {
+/* Style du texte à l'intérieur du header */
+header p, header h1, header span {
     color: #854d0e; /* Texte marron/jaune chaleureux */
     font-family: 'Georgia', serif;
     font-size: 1.1rem;
     font-weight: bold;
     margin: 0;
-}
-
-/* Conteneur pour les liens de navigation ou boutons dans le header */
-header nav {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
 }
 
 /* --- Contenu principal --- */
@@ -190,8 +178,8 @@ button:hover {
 }
 
 /* --- Boutons de navigation --- */
-a[href="page2.html"], .btn-suivant,
-a[href="page1.html"], .btn-precedent,
+a[href="2-premier_date.html"], .btn-suivant,
+a[href="1-debut.html"], .btn-precedent,
 a.logout {
     display: inline-block;
     font-family: 'Arial', sans-serif;
@@ -205,24 +193,24 @@ a.logout {
 }
 
 /* Bouton Suivant */
-a[href="page2.html"], .btn-suivant {
+a[href="2-premier_date.html"], .btn-suivant {
     background-color: #ca8a04;
     color: #ffffff;
     box-shadow: 0 4px 15px rgba(202, 138, 4, 0.2);
     border: none;
 }
-a[href="page2.html"]:hover, .btn-suivant:hover {
+a[href="2-premier_date.html"]:hover, .btn-suivant:hover {
     background-color: #a16207;
     transform: translateY(-2px);
 }
 
 /* Bouton Précédent */
-a[href="page1.html"], .btn-precedent {
+a[href="1-debut.html"], .btn-precedent {
     background-color: #fefce8;
     color: #854d0e;
     border: 1px solid #fde047;
 }
-a[href="page1.html"]:hover, .btn-precedent:hover {
+a[href="1-debut.html"]:hover, .btn-precedent:hover {
     background-color: #fef08a;
     transform: translateY(-2px);
 }

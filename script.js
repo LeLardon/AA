@@ -12,7 +12,7 @@ document.getElementById('auth-form').addEventListener('submit', function(e) {
         // Enregistre l'autorisation dans la session du navigateur
         sessionStorage.setItem('accessGranted', 'true');
         // Redirige vers la première page
-        window.location.href = 'page1.html';
+        window.location.href = '1-debut.html';
     } else {
         errorMsg.classList.remove('hidden');
         document.getElementById('answer-input').value = '';
