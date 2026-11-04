@@ -1,0 +1,6 @@
+- ajouter un footer
+- voir pour ajouter la date/période dans le header de chaque page + changer le style
+- changer la page de connexion (texte et style?)
+- changer la page 1 en étayant notre mise en couple
+- page 2 sur notre 1e date au resto (photo en story insta + musique sur le coq ?)
+- dérouler la conception des pages
