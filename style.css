@@ -21,48 +21,33 @@ body.page-login {
     background: linear-gradient(135deg, #fcfbf7 0%, #fef3c7 100%);
 }
 
-/* --- Barre de navigation --- */
+/* --- En-tête (Header) --- */
 header {
-    background-color: #fefce8;
-    border-bottom: 1px solid #fef08a;
-    padding: 0.8rem 1rem;
+    background-color: #fefce8; /* Fond jaune très pâle et doux */
+    border-bottom: 1px solid #fef08a; /* Fine bordure dorée discrète */
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between; /* Espace les éléments (ex: logo/titre à gauche, liens à droite) */
+    align-items: center;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne proprement sur mobile si besoin */
+    gap: 1rem;
 }
 
-nav {
+/* Style si vous mettez un titre ou du texte simple dans le header */
+header .header-title, header h1, header p {
+    color: #854d0e; /* Texte marron/jaune chaleureux */
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Conteneur pour les liens de navigation ou boutons dans le header */
+header nav {
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 1rem;
-    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur les tout petits écrans */
-}
-
-nav a {
-    color: #854d0e;
-    text-decoration: none;
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}
-
-nav a:hover {
-    color: #fff;
-    background-color: #eab308;
-}
-
-nav a.active {
-    color: #fff;
-    background-color: #ca8a04;
-}
-
-nav a.logout {
-    color: #b91c1c;
-}
-
-nav a.logout:hover {
-    background-color: #fee2e2;
+    flex-wrap: wrap;
 }
 
 /* --- Contenu principal --- */
