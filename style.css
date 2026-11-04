@@ -305,3 +305,25 @@ a.logout:hover {
         gap: 3rem;
     }
 }
+/* --- Pied de page (Footer) --- */
+footer {
+    background-color: #fefce8; /* Fond jaune très pâle assorti au header */
+    border-top: 1px solid #fef08a; /* Fine bordure dorée discrète */
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: auto; /* Pousse toujours le footer tout en bas de la page */
+    color: #854d0e; /* Texte marron/jaune chaleureux */
+    font-family: 'Arial', sans-serif;
+    font-size: 0.85rem;
+}
+
+footer p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Petit détail mignon pour un cœur ou un texte en accent */
+footer span {
+    color: #ca8a04;
+    font-weight: bold;
+}
