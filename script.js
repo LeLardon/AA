@@ -5,44 +5,46 @@ const headerTexts = {
 
 async function loadComponent(elementId, file) {
     try {
-        const response = await fetch(file);
+        // Résolution robuste du chemin pour GitHub Pages (gère les sous-dossiers et les projets)
+        const basePath = window.location.pathname.includes('/') 
+            ? window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1) 
+            : '/';
+        const fileUrl = new URL(file, window.location.origin + basePath).href;
+
+        const response = await fetch(fileUrl);
 
         if (!response.ok) {
-            throw new Error(`Erreur lors du chargement : ${file}`);
+            throw new Error(`Erreur lors du chargement : ${file} (Statut: ${response.status})`);
         }
 
         const html = await response.text();
+        const element = document.getElementById(elementId);
+        if (!element) return;
+        
+        element.innerHTML = html;
 
-        document.getElementById(elementId).innerHTML = html;
-
-        // Mise en évidence de la page actuelle dans le menu
+        // Mise en évidence de la page actuelle dans le menu & personnalisation du header
         if (elementId === "header") {
-
-            const currentPage = window.location.pathname.split("/").pop();
+            let currentPage = window.location.pathname.split("/").pop();
+            if (!currentPage || currentPage === "") {
+                currentPage = "index.html";
+            }
 
             const menuLinks = document.querySelectorAll("#pages-menu a");
-
             menuLinks.forEach(link => {
-
                 const linkPage = link.getAttribute("href");
-
-                if (linkPage === currentPage) {
+                if (linkPage === currentPage || (currentPage === "index.html" && (linkPage === "./" || linkPage === ""))) {
                     link.classList.add("active");
                     link.setAttribute("aria-current", "page");
                 }
-
             });
-        }
 
-        // Personnalisation du header
-        if (elementId === "header") {
-
+            // Personnalisation du texte du header
             const page = document.body.dataset.page;
             const textElement = document.getElementById("header-text");
 
             if (textElement) {
-                textElement.textContent =
-                    headerTexts[page] || "A💛A";
+                textElement.textContent = headerTexts[page] || "A💛A";
             }
 
             // Gestion du menu hamburger
@@ -50,12 +52,9 @@ async function loadComponent(elementId, file) {
             const pagesMenu = document.getElementById("pages-menu");
 
             if (menuBtn && pagesMenu) {
-
                 menuBtn.addEventListener("click", (e) => {
                     e.stopPropagation();
-
                     pagesMenu.classList.toggle("hidden");
-
                     const isOpen = !pagesMenu.classList.contains("hidden");
                     menuBtn.setAttribute("aria-expanded", isOpen);
                 });
@@ -74,43 +73,39 @@ async function loadComponent(elementId, file) {
         }
 
     } catch (error) {
-        console.error(error);
+        console.error("Erreur loadComponent:", error);
     }
 }
 
-
 // Chargement du header et du footer
 document.addEventListener("DOMContentLoaded", async () => {
-
     await loadComponent("header", "header.html");
-
     await loadComponent("footer", "footer.html");
-
 });
 
-
-// Autres fonctionnalités
+// Autres fonctionnalités (Connexion)
 document.addEventListener("DOMContentLoaded", () => {
-
-    // 1. LOGIQUE DE CONNEXION
     const authForm = document.getElementById("auth-form");
 
     if (authForm) {
         authForm.addEventListener("submit", function(e) {
             e.preventDefault();
 
-            const userAnswer = document.getElementById("answer-input").value.trim().toLowerCase();
-            const correctAnswer = "incomparable";
+            const answerInput = document.getElementById("answer-input");
             const errorMsg = document.getElementById("error-msg");
+
+            if (!answerInput) return;
+
+            const userAnswer = answerInput.value.trim().toLowerCase();
+            const correctAnswer = "incomparable";
 
             if (userAnswer === correctAnswer) {
                 sessionStorage.setItem("accessGranted", "true");
                 window.location.href = "1-debut.html";
             } else {
-                errorMsg.classList.remove("hidden");
-                document.getElementById("answer-input").value = "";
+                if (errorMsg) errorMsg.classList.remove("hidden");
+                answerInput.value = "";
             }
         });
     }
-
 });
