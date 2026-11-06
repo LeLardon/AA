@@ -1,5 +1,5 @@
 /* --- Styles généraux --- */
-* {
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -21,49 +21,108 @@ body.page-login {
     background: linear-gradient(135deg, #fcfbf7 0%, #fef3c7 100%);
 }
 
-/* --- En-tête (Header) avec uniquement du texte centré --- */
-header {
-    background-color: #fefce8; /* Fond jaune très pâle et doux */
-    border-bottom: 1px solid #fef08a; /* Fine bordure dorée discrète */
+/* --- En-tête (Header) --- */
+header, .site-header {
+    background-color: #fefce8;
+    border-bottom: 1px solid #fef08a;
     padding: 1rem 1.5rem;
-    text-align: center; /* Centre parfaitement le texte à l'intérieur */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Empêche le header de s'écraser */
 }
 
-/* Style du texte à l'intérieur du header */
-header p, header h1, header span {
-    color: #854d0e; /* Texte marron/jaune chaleureux */
+header p, header h1, header span, .header-title, .site-header #header-text {
+    color: #854d0e;
     font-family: 'Georgia', serif;
     font-size: 1.1rem;
     font-weight: bold;
     margin: 0;
-}
-
-/* --- Contenu principal --- */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    padding: 1rem; /* Marges réduites sur mobile pour ne pas rogner le contenu */
-}
-
-/* --- Cartes / Conteneurs (Style chaleureux) --- */
-.card {
-    background: #ffffff;
-    padding: 2rem 1.5rem; /* Padding réduit sur mobile */
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(234, 179, 8, 0.15);
     text-align: center;
-    max-width: 500px;
+}
+
+/* Bouton du menu à gauche */
+.site-header #menu-btn, .btn-menu {
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #854d0e;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    width: auto;
+}
+
+.site-header #menu-btn:hover, .btn-menu:hover {
+    background-color: #fef08a;
+    transform: translateY(-50%);
+}
+
+/* Bouton Croix / Déconnexion à droite */
+.btn-logout {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    color: #854d0e;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-logout:hover {
+    background-color: #fee2e2;
+}
+
+/* --- Contenu principal (VERSION MOBILE PAR DÉFAUT) --- */
+.container, .page-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
     width: 100%;
-    border: 1px solid #fef08a;
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+    overflow-y: auto; /* Permet le défilement fluide sur petit écran si besoin */
+}
+
+/* --- Carte de texte --- */
+.card {
+    position: relative;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(234, 179, 8, 0.2);
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    border: 1px solid rgba(254, 240, 138, 0.8);
+    flex-shrink: 0;
 }
 
 .card h1 {
     font-family: 'Georgia', serif;
     color: #713f12;
-    margin-bottom: 1rem;
-    font-size: 1.5rem; /* Légèrement plus petit sur mobile pour éviter les césures */
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .card p {
@@ -137,44 +196,153 @@ button:hover {
     display: none;
 }
 
-/* --- Conteneur de photos chevauchantes (Optimisé mobile) --- */
+/* --- Pied de page (Footer) --- */
+footer {
+    background-color: #fefce8;
+    border-top: 1px solid #fef08a;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    flex-shrink: 0;
+    color: #854d0e;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.85rem;
+}
+
+footer p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+footer span {
+    color: #ca8a04;
+    font-weight: bold;
+}
+
+
+/* --- Conteneur des 4 photos (VERSION MOBILE : affiché en dessous avec léger chevauchement) --- */
 .photos-container {
-    position: relative;
-    width: 260px;  /* Réduit pour tenir parfaitement sur mobile */
-    height: 310px; 
-    margin: 1.5rem auto; 
+    position: relative; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem 0 2rem 0;
+    z-index: 1;
+    pointer-events: auto; 
 }
 
 .photo {
-    position: absolute;
-    width: 160px;  /* Taille adaptée aux petits écrans */
-    height: auto;
-    border-radius: 10px; 
-    border: 4px solid #ffffff; 
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+    position: relative; 
+    pointer-events: auto;
+    border-radius: 12px;
+    border: 5px solid #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
     transition: transform 0.3s ease, z-index 0.3s ease;
 }
 
-/* Première photo (inclinée vers la gauche) */
+/* --- Dispositions Mobile avec léger chevauchement --- */
 .photo-1 {
-    top: 0;
-    left: 0;
-    transform: rotate(-6deg);
-    z-index: 1; 
+    width: 150px;
+    z-index: 1;
 }
 
-/* Deuxième photo (inclinée vers la droite et chevauche la première) */
 .photo-2 {
-    top: 35px; 
-    left: 70px; 
-    transform: rotate(6deg);
-    z-index: 2; 
+    width: 140px;
+    margin-left: -35px; /* Décale la photo vers la gauche pour la superposer */
+    margin-top: 20px;   /* Léger décalage vertical */
+    z-index: 2;
+    transform: rotate(5deg); /* Remet une légère inclinaison sympa si vous voulez */
 }
 
-/* Effet au survol */
-.photo:hover {
-    transform: scale(1.05) rotate(0deg);
-    z-index: 10;
+.photo-3 {
+    width: 150px;
+    margin-left: -40px;
+    margin-top: -15px;
+    z-index: 3;
+    transform: rotate(-4deg);
+}
+
+.photo-4 {
+    width: 140px;
+    margin-left: -35px;
+    margin-top: 15px;
+    z-index: 4;
+    transform: rotate(7deg);
+}
+
+/* Effet Zoom au survol (Mobile & PC) */
+.photos-container .photo:hover {
+    transform: scale(1.08) rotate(0deg) !important;
+    z-index: 40;
+}
+
+
+/* ========================================================== */
+/* --- ADAPTATION GRAND ÉCRAN (Ordinateur / >= 768px) ------- */
+/* ========================================================== */
+@media (min-width: 768px) {
+    html, body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .container, .page-content {
+        justify-content: center;
+        padding: 1rem;
+        overflow: hidden;
+    }
+
+    /* Repasse le conteneur en absolute derrière le texte pour PC */
+    .photos-container {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        pointer-events: none;
+        display: block; /* Annule le flex mobile */
+    }
+
+    .photo {
+        position: absolute; /* Remet le positionnement libre pour les coins sur PC */
+        pointer-events: auto;
+    }
+
+    /* Classes adaptées selon l'orientation (portrait ou paysage) */
+    .portrait {
+        width: 250px; /* Taille idéale pour un format vertical */
+    }
+
+    .paysage {
+        width: 420px; /* Taille idéale pour un format horizontal */
+    }
+
+    /* Positions fixes sur l'écran PC */
+    .photo-1 {
+        top: 6%;
+        left: 8%;
+        transform: rotate(-8deg) !important;
+    }
+
+    .photo-2 {
+        top: 8%;
+        right: 10%;
+        transform: rotate(6deg) !important;
+    }
+
+    .photo-3 {
+        bottom: 6%;
+        left: 6%;
+        transform: rotate(-5deg) !important;
+    }
+
+    .photo-4 {
+        bottom: 5%;
+        right: 6%;
+        transform: rotate(9deg) !important;
+    }
 }
 
 /* --- Boutons de navigation --- */
@@ -215,88 +383,52 @@ a[href="1-debut.html"]:hover, .btn-precedent:hover {
     transform: translateY(-2px);
 }
 
-/* Bouton Quitter / Logout */
-a.logout {
-    background-color: #fef2f2;
-    color: #b91c1c;
-    border: 1px solid #fecaca;
-}
-a.logout:hover {
-    background-color: #fee2e2;
-    color: #991b1b;
-    transform: translateY(-2px);
-}
 
-
-/* --- ADAPTATION GRAND ÉCRAN (Ordinateur) --- */
-/* Si l'écran fait plus de 768px de large (tablettes et PC), on redonne un peu plus d'espace */
-@media (min-width: 768px) {
-    .card {
-        padding: 3rem 2.5rem;
-    }
-    
-    .card h1 {
-        font-size: 1.8rem;
-    }
-
-    .photos-container {
-        width: 300px;
-        height: 350px;
-    }
-
-    .photo {
-        width: 200px;
-    }
-
-    .photo-2 {
-        top: 40px;
-        left: 80px;
-    }
-
-    nav {
-        gap: 2rem;
-    }
-
-    nav a {
-        font-size: 0.95rem;
-        padding: 0.5rem 1rem;
-    }
-}
-/* --- Mise en page adaptative pour la Page 2 --- */
-.page-content {
+/* --- Liste des pages déroulante (Menu) --- */
+.pages-menu {
+    position: absolute;
+    top: 100%;
+    left: 1rem;
+    background: #ffffff;
+    border: 1px solid #fef08a;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    padding: 0.8rem;
     display: flex;
-    flex-direction: column; /* Sur mobile : on empile la carte et les photos */
-    align-items: center;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 0.6rem;
+    z-index: 100;
+    min-width: 220px;
+    margin-top: 5px;
 }
 
-/* Sur ordinateur (écrans de plus de 768px) : on les met côte à côte */
-@media (min-width: 768px) {
-    .page-content {
-        flex-direction: row;
-        justify-content: center;
-        gap: 3rem;
-    }
-}
-/* --- Pied de page (Footer) --- */
-footer {
-    background-color: #fefce8; /* Fond jaune très pâle assorti au header */
-    border-top: 1px solid #fef08a; /* Fine bordure dorée discrète */
-    text-align: center;
-    padding: 1.5rem 1rem;
-    margin-top: auto; /* Pousse toujours le footer tout en bas de la page */
-    color: #854d0e; /* Texte marron/jaune chaleureux */
+.pages-menu a {
+    color: #713f12;
+    background-color: #fefce8;
+    text-decoration: none;
     font-family: 'Arial', sans-serif;
-    font-size: 0.85rem;
-}
-
-footer p {
-    margin: 0;
-    line-height: 1.5;
-}
-
-/* Petit détail mignon pour un cœur ou un texte en accent */
-footer span {
-    color: #ca8a04;
+    font-size: 0.9rem;
     font-weight: bold;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    text-align: left;
+    transition: background 0.2s ease;
+    border-left: 4px solid transparent;
+}
+
+.pages-menu a:hover {
+    color: #713f12;
+    background-color: #fefce8;
+}
+
+.pages-menu a.active {
+    background-color: #fde68a;
+    color: #713f12;
+    font-weight: bold;
+    border-left: 4px solid #ca8a04;
+    padding-left: 0.8rem;
+}
+
+.pages-menu.hidden {
+    display: none;
 }
