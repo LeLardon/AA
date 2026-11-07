@@ -1,7 +1,8 @@
 const headerTexts = {
     debut: "La plus belle histoire d'amour 💛",
     premier_date: "Notre 1er date et notre 1e resto 🐓",
-    aquarium: "L'aquarium 🐟​"
+    aquarium: "L'aquarium 🐟​",
+    the_end: "",
 };
 
 async function loadComponent(elementId, file) {

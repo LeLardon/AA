@@ -1,5 +1,0 @@
-- refactoriser le CSS
-- faire une dernière page (en construction avec les photos dossier ???)
-- dérouler la conception des pages
-
-live server by Ritwick Dey
