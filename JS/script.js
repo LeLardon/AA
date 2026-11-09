@@ -108,6 +108,42 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+    
+    // Gérer le défilement des photos sur mobile
+    const photos = document.querySelectorAll(".photos-container .photo");
+    if (photos.length > 0) {
+        photos.forEach((photo) => {
+            photo.addEventListener("click", () => {
+                if (window.innerWidth >= 768) return;
+
+                const container = photo.parentNode;
+
+                // 1. Étape de glissement sur le côté
+                photo.classList.add("slide-aside");
+
+                // 2. Après 250ms, on l'envoie derrière et en bas du tas
+                setTimeout(() => {
+                    photo.classList.remove("slide-aside");
+                    photo.classList.add("send-to-back");
+                }, 250);
+
+                // 3. À la fin totale de l'animation (500ms), on remet à jour le DOM et les z-index
+                setTimeout(() => {
+                    photo.classList.remove("send-to-back");
+                    
+                    // Déplace la photo cliquée à la fin du conteneur HTML
+                    container.appendChild(photo);
+
+                    // Recalcule les z-index de la pile
+                    const currentPhotos = container.querySelectorAll(".photo");
+                    const total = currentPhotos.length;
+                    currentPhotos.forEach((p, index) => {
+                        p.style.zIndex = total - index;
+                    });
+                }, 500);
+            });
+        });
+    }
 });
 
 document.addEventListener("click", function(e) {

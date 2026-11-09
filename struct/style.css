@@ -219,62 +219,93 @@ footer span {
 }
 
 
-/* --- Conteneur des 4 photos (VERSION MOBILE : affiché en dessous avec léger chevauchement) --- */
+/* --- Styles de base des photos --- */
 .photos-container {
     position: relative; 
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 1rem 0 2rem 0;
     z-index: 1;
     pointer-events: auto; 
 }
 
 .photo {
-    position: relative; 
-    pointer-events: auto;
     border-radius: 12px;
     border: 5px solid #ffffff;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
     transition: transform 0.3s ease, z-index 0.3s ease;
 }
 
-/* --- Dispositions Mobile avec léger chevauchement --- */
-.photo-1 {
-    width: 150px;
-    z-index: 1;
-}
+/* ========================================================== */
+/* --- ADAPTATION MOBILE UNIQUEMENT (< 768px) --------------- */
+/* ========================================================== */
+@media (max-width: 767px) {
+    .photos-container {
+        height: 280px; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0;
+    }
 
-.photo-2 {
-    width: 140px;
-    margin-left: -35px; /* Décale la photo vers la gauche pour la superposer */
-    margin-top: 20px;   /* Léger décalage vertical */
-    z-index: 2;
-    transform: rotate(5deg); /* Remet une légère inclinaison sympa si vous voulez */
-}
+    .photo {
+        position: absolute; 
+        left: 50%;
+        top: 50%;
+        cursor: pointer; 
+        display: block !important; 
+        /* Animation fluide sur tous les mouvements et le z-index */
+        transition: transform 0.4s ease, z-index 0.4s ease;
+    }
 
-.photo-3 {
-    width: 150px;
-    margin-left: -40px;
-    margin-top: -15px;
-    z-index: 3;
-    transform: rotate(-4deg);
-}
+    /* --- Inclinaisons et positions de base du tas --- */
+    .photo-1 {
+        transform: translate(-50%, -50%) rotate(-6deg) translateY(-5px);
+        z-index: 6;
+    }
 
-.photo-4 {
-    width: 140px;
-    margin-left: -35px;
-    margin-top: 15px;
-    z-index: 4;
-    transform: rotate(7deg);
-}
+    .photo-2 {
+        transform: translate(-50%, -50%) rotate(5deg) translateX(8px);
+        z-index: 5;
+    }
 
-/* Effet Zoom au survol (Mobile & PC) */
-.photos-container .photo:hover {
-    transform: scale(1.08) rotate(0deg) !important;
-    z-index: 40;
+    .photo-3 {
+        transform: translate(-50%, -50%) rotate(-10deg) translateX(-10px) translateY(5px);
+        z-index: 4;
+    }
+
+    .photo-4 {
+        transform: translate(-50%, -50%) rotate(8deg) translateY(10px);
+        z-index: 3;
+    }
+
+    .photo-5 {
+        transform: translate(-50%, -50%) rotate(-3deg) translateX(5px) translateY(-8px);
+        z-index: 2;
+    }
+
+    .photo-6 {
+        transform: translate(-50%, -50%) rotate(4deg) translateX(-6px);
+        z-index: 1;
+    }
+    
+    /* --- Étape 1 : La photo se décale sur le côté (ex: à droite) et se soulève un peu --- */
+    .photo.slide-aside {
+        transform: translate(-30%, -60%) rotate(15deg) scale(1.05) !important;
+    }
+
+    /* --- Étape 2 : La photo plonge tout en bas de la pile --- */
+    .photo.send-to-back {
+        z-index: 0 !important; 
+        transform: translate(-70%, -40%) scale(0.85) rotate(-20deg) !important; 
+    }
+
+    /* Tailles spécifiques mobile (Portrait vs Paysage) */
+    .portrait {
+        width: 180px;
+    }
+
+    .paysage {
+        width: 280px; 
+    }
 }
 
 
@@ -308,6 +339,7 @@ footer span {
     .photo {
         position: absolute; /* Remet le positionnement libre pour les coins sur PC */
         pointer-events: auto;
+        display: block !important; /* Toujours visibles sur PC */
     }
 
     /* Classes adaptées selon l'orientation (portrait ou paysage) */
@@ -328,7 +360,7 @@ footer span {
 
     .photo-2 {
         top: 8%;
-        right: 10%;
+        right: 6%;
         transform: rotate(6deg) !important;
     }
 
@@ -339,9 +371,29 @@ footer span {
     }
 
     .photo-4 {
-        bottom: 5%;
+        bottom: 6%;
         right: 6%;
-        transform: rotate(9deg) !important;
+        transform: rotate(5deg) !important;
+    }
+    
+    .photo-5 {
+        top: 10%;
+        right: 17%; 
+        z-index: 5;
+        transform: rotate(-2deg) !important;
+    }
+    
+    .photo-6 {
+        bottom: 8%;
+        left: 17%; 
+        z-index: 5;
+        transform: rotate(4deg) !important;
+    }
+
+    /* Effet Zoom au survol sur PC */
+    .photos-container .photo:hover {
+        transform: scale(1.08) rotate(0deg) !important;
+        z-index: 40;
     }
 }
 
