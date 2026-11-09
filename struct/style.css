@@ -105,7 +105,7 @@ header p, header h1, header span, .header-title, .site-header #header-text {
 /* --- Carte de texte --- */
 .card {
     position: relative;
-    z-index: 50;
+    z-index: 10;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
     padding: 2rem 1.5rem;
@@ -335,6 +335,17 @@ footer span {
         pointer-events: none;
         display: block; /* Annule le flex mobile */
     }
+    
+    .photos-container:has(.photo:hover) {
+        z-index: 20;
+    }
+
+    /* La photo survolée passe au premier plan */
+    .photos-container .photo:hover {
+        position: absolute;
+        z-index: 1000 !important;
+        transform: scale(1.15) rotate(0deg) !important;
+    }
 
     .photo {
         position: absolute; /* Remet le positionnement libre pour les coins sur PC */
@@ -344,7 +355,7 @@ footer span {
 
     /* Classes adaptées selon l'orientation (portrait ou paysage) */
     .portrait {
-        width: 250px; /* Taille idéale pour un format vertical */
+        width: 220px; /* Taille idéale pour un format vertical */
     }
 
     .paysage {
@@ -354,25 +365,25 @@ footer span {
     /* Positions fixes sur l'écran PC */
     .photo-1 {
         top: 6%;
-        left: 8%;
-        transform: rotate(-8deg) !important;
+        left: 12%;
+        transform: rotate(4deg) !important;
     }
 
     .photo-2 {
-        top: 8%;
-        right: 6%;
-        transform: rotate(6deg) !important;
+        top: 6%;
+        right: 7%;
+        transform: rotate(-4deg) !important;
     }
 
     .photo-3 {
         bottom: 6%;
-        left: 6%;
+        left: 7%;
         transform: rotate(-5deg) !important;
     }
 
     .photo-4 {
         bottom: 6%;
-        right: 6%;
+        right: 9%;
         transform: rotate(5deg) !important;
     }
     
@@ -390,10 +401,11 @@ footer span {
         transform: rotate(4deg) !important;
     }
 
-    /* Effet Zoom au survol sur PC */
+    /* Effet Zoom + passage au premier plan */
     .photos-container .photo:hover {
-        transform: scale(1.08) rotate(0deg) !important;
-        z-index: 40;
+        transform: scale(1.15) rotate(0deg) !important;
+        z-index: 1000 !important;
+        position: absolute;
     }
 }
 
