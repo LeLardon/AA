@@ -4,7 +4,9 @@ const headerTexts = {
     "3-aquarium": "L'aquarium 🐟​",
     "4-st_valentin": "Notre 1e St Valentin 💘",
     "5-debut_2026": "Nos petites sorties et le carnaval 🎭",
-    "6-london": "London 🇬🇧",
+    "6-potes_de_promo": "Potes de promo 🍹",
+    "7-london": "London 🇬🇧",
+    "8-premier_anniversaire": "1e Anniversaire 🎂",
     "the_end": "A💛A"
 };
 
