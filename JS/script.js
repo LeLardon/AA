@@ -7,6 +7,7 @@ const headerTexts = {
     "6-potes_de_promo": "Potes de promo 🍹",
     "7-london": "London 🇬🇧",
     "8-premier_anniversaire": "1e Anniversaire 🎂",
+    "9-premiere_balade_moto": "Nos premières balades en moto 🏍️",
     "the_end": "A💛A"
 };
 
