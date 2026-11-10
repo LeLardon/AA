@@ -8,6 +8,7 @@ const headerTexts = {
     "7-london": "London 🇬🇧",
     "8-premier_anniversaire": "1e Anniversaire 🎂",
     "9-premiere_balade_moto": "Nos premières balades en moto 🏍️",
+    "10-le_mans": "Le Mans - Circuit Bugatti 🏁",
     "the_end": "A💛A"
 };
 
