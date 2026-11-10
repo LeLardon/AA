@@ -3,7 +3,8 @@ const headerTexts = {
     "2-premier_date": "Notre 1er date et notre 1e resto 🐓",
     "3-aquarium": "L'aquarium 🐟​",
     "4-st_valentin": "Notre 1e St Valentin 💘",
-    "5-london": "London 🇬🇧",
+    "5-debut_2026": "Nos petites sorties et le carnaval 🎭",
+    "6-london": "London 🇬🇧",
     "the_end": "A💛A"
 };
 

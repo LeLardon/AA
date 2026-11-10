@@ -106,7 +106,7 @@ header p, header h1, header span, .header-title, .site-header #header-text {
 .card {
     position: relative;
     z-index: 10;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.45);
     backdrop-filter: blur(8px);
     padding: 2rem 1.5rem;
     border-radius: 20px;
