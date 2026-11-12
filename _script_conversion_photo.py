@@ -5,7 +5,7 @@ from pathlib import Path
 # Dossier principal
 DOSSIER_SOURCE = Path("images")
 
-# Qualité WebP
+# Qualité WebP -> à réduire pour diminuer la taille des fichiers si erreur de compilation GitHub Pages
 QUALITE = 85
 
 # Parcours récursif des images
