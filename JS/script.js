@@ -12,6 +12,8 @@ const headerTexts = {
     "11-le_mans": "Le Mans - Circuit Bugatti 🏁",
     "12-juin": "Déménagement 🏢",
     "13-juillet": "Eté 2026 ☀️​",
+    "14-st_leger": "St Léger 🏔️",
+    "15-st_leger_2": "St Léger 2 🏔️",
     "the_end": "A💛A"
 };
 
