@@ -392,7 +392,7 @@ footer span {
         top: 10%;
         right: 17%; 
         z-index: 5;
-        transform: rotate(-2deg) !important;
+        transform: rotate(1deg) !important;
     }
     
     .photo-6 {
@@ -465,9 +465,16 @@ footer span {
     z-index: 100;
     min-width: 220px;
     margin-top: 5px;
-    max-height: 70vh;
-    overflow-y: auto;
+    max-height: 70vh;overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    /* Masquer la barre de défilement */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* Chrome, Safari et Edge */
+.pages-menu::-webkit-scrollbar {
+    display: none;
 }
 
 .pages-menu a {

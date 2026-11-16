@@ -10,6 +10,7 @@ const headerTexts = {
     "9-premier_anniversaire": "1e Anniversaire 🎂",
     "10-premiere_balade_moto": "Nos premières balades en moto 🏍️",
     "11-le_mans": "Le Mans - Circuit Bugatti 🏁",
+    "12-juin": "Déménagement 🏢",
     "the_end": "A💛A"
 };
 
