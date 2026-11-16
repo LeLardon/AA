@@ -14,6 +14,7 @@ const headerTexts = {
     "13-juillet": "Eté 2026 ☀️​",
     "14-st_leger": "St Léger 🏔️",
     "15-st_leger_2": "St Léger 2 🏔️",
+    "16-emmenagement": "Emménagement 🐱",
     "the_end": "A💛A"
 };
 
