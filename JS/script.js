@@ -3,12 +3,13 @@ const headerTexts = {
     "2-premier_date": "Notre 1er date et notre 1e resto 🐓",
     "3-aquarium": "L'aquarium 🐟​",
     "4-st_valentin": "Notre 1e St Valentin 💘",
-    "5-debut_2026": "Nos petites sorties et le carnaval 🎭",
-    "6-potes_de_promo": "Potes de promo 🍹",
-    "7-london": "London 🇬🇧",
-    "8-premier_anniversaire": "1e Anniversaire 🎂",
-    "9-premiere_balade_moto": "Nos premières balades en moto 🏍️",
-    "10-le_mans": "Le Mans - Circuit Bugatti 🏁",
+    "5-operation": "Hôpital 🏥​",
+    "6-debut_2026": "Nos petites sorties et le carnaval 🎭",
+    "7-potes_de_promo": "Potes de promo 🍹",
+    "8-london": "London 🇬🇧",
+    "9-premier_anniversaire": "1e Anniversaire 🎂",
+    "10-premiere_balade_moto": "Nos premières balades en moto 🏍️",
+    "11-le_mans": "Le Mans - Circuit Bugatti 🏁",
     "the_end": "A💛A"
 };
 
