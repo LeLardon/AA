@@ -11,6 +11,7 @@ const headerTexts = {
     "10-premiere_balade_moto": "Nos premières balades en moto 🏍️",
     "11-le_mans": "Le Mans - Circuit Bugatti 🏁",
     "12-juin": "Déménagement 🏢",
+    "13-juillet": "Eté 2026 ☀️​",
     "the_end": "A💛A"
 };
 
