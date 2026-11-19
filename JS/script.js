@@ -15,6 +15,7 @@ const headerTexts = {
     "14-st_leger": "St Léger 🏔️",
     "15-st_leger_2": "St Léger 2 🏔️",
     "16-emmenagement": "Emménagement 🐱",
+    "17-concerts_rugby": "Concerts et Rugby 🏉",
     "the_end": "A💛A"
 };
 
